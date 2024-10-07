@@ -233,3 +233,23 @@ clean-sim:
 
 clean-sim-debug:
 	rm -rf $(model_dir_debug) $(sim_debug)
+
+clean-all:
+	make clean
+	make clean-sim
+	make clean-sim-debug
+
+# Custom makefile
+rvvBaseLine:
+	make CONFIG=GENV256D128ShuttleConfig run-binary BINARY=/home/chipyard/chipyard/tests/rvv_baseline.riscv
+rvvBaseLineVCD:
+	make CONFIG=GENV256D128ShuttleConfig run-binary-debug BINARY=/home/chipyard/chipyard/tests/rvv_baseline.riscv
+
+scalarRoPE:
+	make CONFIG=GENV256D128ShuttleConfig run-binary BINARY=/home/chipyard/chipyard/tests/cmp_scalar_rope.riscv
+rvvRoPE:
+	make CONFIG=GENV256D128ShuttleConfig run-binary BINARY=/home/chipyard/chipyard/tests/cmp_simd_rvv_standard_rope.riscv
+ROPEfvx:
+	make CONFIG=GENV256D128ShuttleConfig run-binary BINARY=/home/chipyard/chipyard/tests/cmp_simd_rope_vfx.riscv
+
+

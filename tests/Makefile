@@ -17,7 +17,7 @@ SIZE = $(TARGET)-size
 #################################
 
 # SoC Settings
-ARCH = rv64imafdc
+ARCH = rv64gcv
 ABI = lp64d
 ARCHFLAGS = -march=$(ARCH) -mabi=$(ABI)
 
@@ -29,7 +29,7 @@ include libgloss.mk
 
 PROGRAMS = pwm blkdev accum charcount nic-loopback big-blkdev pingd \
            streaming-passthrough streaming-fir nvdla spiflashread spiflashwrite fft gcd \
-           hello mt-hello symmetric
+            hello mt-hello symmetric
 
 
 .DEFAULT_GOAL := default
